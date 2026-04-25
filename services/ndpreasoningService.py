@@ -3,24 +3,18 @@
 import torch
 from peft import PeftModel, PeftConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, GenerationConfig
+from flask import Flask, request, jsonify
 SYSTEM_PROMPT = """
 You are an helpful assistant converts user request into individual tasks.
 Write a answer that appropriately provides the  individual tasks
 """
-
-def format_input(entry):
+app = Flask(__name__)
+def format_input(question):
     instruction_text = (
         f"You are an helpful assistant converts user request into individual tasks."
         f"Write a answer that appropriately provides the  individual tasks"
-        f"\n\n### question:\n{entry['question']}"
+        f"\n\n### Question:\n "+question
     )
-
-    instruction_text=(
-        f"You are an helpful assistant read and analyze the  user question and converts it into sequence of tasks. "
-        f"Think through the user question . Make sure to first add your step by step thought process within <think> </think> tags. Then, return your sequence of tasks in the following format: <guess> tesk1 > task2> </guess>."
-        f"\n\n### question:\n{entry['question']}"
-    )
-
     #input_text = f"\n\n### Input:\n{entry['input']}" if entry["input"] else ""
     return instruction_text #+ input_text
 bnb_config = BitsAndBytesConfig(
@@ -29,7 +23,7 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16, # Or torch.bfloat16
     bnb_4bit_use_double_quant=True
 )
-peft_model_id = "./Laala-3.2-3B-inst-task"
+peft_model_id ="../Laala-3.2-3B-ndp-inst-task";
 config = PeftConfig.from_pretrained(peft_model_id)
 print(config.base_model_name_or_path)
 model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path,
@@ -40,20 +34,29 @@ tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
 
 model = PeftModel.from_pretrained(model,peft_model_id)
 model.to("cuda")
-entry={
-        "question": "validate brand defaults for the domain mgoud and validate brand defaults for the domain chris",
-        "answer": "The capital of India is New Delhi."
-    }
-chat = [
-    {"role": "system", "content": SYSTEM_PROMPT},
-    {"role": "user", "content": entry["question"]},
-]
-chat = tokenizer.apply_chat_template(chat, tokenize=False)
-inputs = tokenizer(chat, return_tensors="pt", return_attention_mask=True)
-inputs.to("cuda")
 model.eval()
-config = GenerationConfig(do_sample=True, temperature=0.1)
-outputs = model.generate(**inputs, max_length=1000,pad_token_id=tokenizer.eos_token_id, generation_config=config )
 
-text = tokenizer.batch_decode(outputs)[0]
-print(text)
+@app.route('/generate', methods=['POST'])
+def generate_text():
+    data = request.get_json()
+    question = data.get('question')
+    entry = {
+        "question": "can you please get the count of   all the mac addresses?",
+    }
+    chat = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": question},
+    ]
+    chat = tokenizer.apply_chat_template(chat, tokenize=False)
+    inputs = tokenizer(chat, return_tensors="pt", return_attention_mask=True)
+    inputs.to("cuda")
+    config = GenerationConfig(do_sample=True, temperature=0.1)
+    outputs = model.generate(**inputs, max_length=1000, pad_token_id=tokenizer.eos_token_id, generation_config=config)
+    text = tokenizer.batch_decode(outputs)[0]
+    startIdx=text.index("<|start_header_id|>assistant<|end_header_id|>")+len("<|start_header_id|>assistant<|end_header_id|>")+1
+    text= text[startIdx:].replace("<|eot_id|>","")
+    print(text)
+    return text
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

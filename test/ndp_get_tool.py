@@ -4,23 +4,15 @@ import torch
 from peft import PeftModel, PeftConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, GenerationConfig
 SYSTEM_PROMPT = """
-You are an helpful assistant converts user request into individual tasks.
-Write a answer that appropriately provides the  individual tasks
+You are an helpful assistant understands the user question and provides the correct tool name to call along with  the arguments to pass to the tool.
 """
 
 def format_input(entry):
     instruction_text = (
-        f"You are an helpful assistant converts user request into individual tasks."
-        f"Write a answer that appropriately provides the  individual tasks"
+        f"You are an helpful assistant provides the correct url to call to fulfill user request. "
+       f"Write a answer that appropriately provides the  url to call."
         f"\n\n### question:\n{entry['question']}"
     )
-
-    instruction_text=(
-        f"You are an helpful assistant read and analyze the  user question and converts it into sequence of tasks. "
-        f"Think through the user question . Make sure to first add your step by step thought process within <think> </think> tags. Then, return your sequence of tasks in the following format: <guess> tesk1 > task2> </guess>."
-        f"\n\n### question:\n{entry['question']}"
-    )
-
     #input_text = f"\n\n### Input:\n{entry['input']}" if entry["input"] else ""
     return instruction_text #+ input_text
 bnb_config = BitsAndBytesConfig(
@@ -29,7 +21,7 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16, # Or torch.bfloat16
     bnb_4bit_use_double_quant=True
 )
-peft_model_id = "./Laala-3.2-3B-inst-task"
+peft_model_id = "../Laala-3.2-3B-ndp-inst-api"
 config = PeftConfig.from_pretrained(peft_model_id)
 print(config.base_model_name_or_path)
 model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path,
@@ -41,7 +33,7 @@ tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
 model = PeftModel.from_pretrained(model,peft_model_id)
 model.to("cuda")
 entry={
-        "question": "validate brand defaults for the domain mgoud and validate brand defaults for the domain chris",
+        "question": "validate the brand defaults for the brand tesla in the domain mgopud",
         "answer": "The capital of India is New Delhi."
     }
 chat = [
