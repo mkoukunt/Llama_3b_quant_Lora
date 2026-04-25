@@ -1,0 +1,560 @@
+Note: These directions might vary slightly by phone model and firmware version.
+Cisco SPA/Linksys
+1. Access the phone’s web interface (typically, press the Setup button, and then navigate
+down to Network).
+2. Go to the Admin > Advanced page, and then click the Provisioning tab.
+3. Change the Profile Rule to match to the following figure using the syntax
+http://<endpoint-FQDN>/cfg/spa$MA.cfg.
+4. Once set, reboot your phone to force it to request the configuration file from the Endpoints
+module
+GrandStream
+1. Access the phone’s web interface.
+2. Log in using the default login and password (both are admin). If the web interface prompts
+you for a password only, type admin or 123.
+3. Go to the Advanced Settings page, and then scroll down to the Firmware Upgrade and
+Provisioning section.
+4. For Upgrade Via, click HTTP and change Config Server Path to <endpoint-FQDN>/cfg.
+5. Once set, reboot your phone to force it to request the configuration file from the Endpoints
+module
+Polycom
+UC4 firmware allows you to set the provisioning URL via web; otherwise, you can set the
+provisioning URL from the phone menu.UC4 or Later Web Interface
+1. Obtain the phone’s IP address by going to Menu > (Settings) > Status > Network >
+TCP/IP Parameters.
+2. Launch a web browser (newer UC firmware use SSL), and then go to the IP address you
+found in step 1.
+3. Log in as username Polycom using the password 456.
+4. Go to Settings > Provisioning Server.
+5. Set the Server Type to HTTP and the Server Address to < endpoint-FQDN >/cfg.
+6. Once set, reboot your phone to force it to request the configuration file from the Endpoints
+module.Phone Menu
+1. Press the Menu button, and then go to Settings > Advanced.
+2. Enter the password (default is 456).
+3. Go to Admin Settings > Network Configuration, and the Server menu.
+4. Change Server Type to HTTP.
+5. In Server Address, type < endpoint-FQDN >/cfg.
+6. Exit and save. The phone should reboot. If it doesn’t, reboot the phone to force it to request
+the configuration file from the Endpoints module.
+Yealink
+1. Determine the phone’s IP address.
+2. Launch a web browser, and then go to the IP address you found in step 1.
+3. Log in (the default username and password are both admin).
+4. Go to Settings, and then click the Auto Provision subtab.
+5. Set the Server URL as http://<endpoint-FQDN>/cfg/.
+6. Confirm the URL, and then click Autoprovision Now.
+General Provisioning Process
+7. Once set, reboot your phone to force it to request the configuration file from the Endpoints
+module
+
+
+Note: You can assign only one active phone to an extension at a time. For example, if
+extension 100 is assigned to the handset 0080F0C8C645, this extension cannot be
+assigned to another handset. If you require more than one handset to be associated with the
+same extension, the additional handsets will be 100a, 100b, and so on
+
+General Provisioning Process
+Adding a Phone Using the Endpoints Admin UI
+The procedure for adding a phone using the Endpoints Admin UI varies a bit, depending on
+whether your Endpoints Module is associated with one or many Cores and whether geo-
+redundancy is enabled.
+
+
+
+Adding an Analog Gateway
+Analog gateways are similar to phones/ATAs, with two major differences:
+• Analog gateways support trunks (one trunk’s registration can be associated to many lines
+which the gateway device will hunt)
+• Analog gateways support devices up to 24 ports
+A few examples of gateways include the Linksys/Cisco SPA8000 and Grandstream GXW-
+4008.
+To add a gateway in Endpoints Admin UI:
+1. Go to Configurations > Gateways > Analog.
+2. After entering the MAC and selecting the server and domain, a screen similar to the
+following allows you to assign trunks and lines.
+3. After you set the trunks/lines, click Create to add the device.
+Defaults and Overrides
+Configuration files are generated on-the-fly by combining the brand defaults and overrides
+into a configuration file format suitable for the phone model. Parameters are defined by the
+phone manufacturer and usually described in an Administrator’s or Provisioning Guide.
+To enable multicast paging on a Polycom phone, for example, refer to the Polycom UC
+Software Admin Guide for the following parameter:
+To do the same for a Yealink phone, refer to the Yealink Administrator’s Guide for the
+following parameters
+To enable multicast paging on a Yealink, set:
+• linekey.2.type=”66”
+multicast.paging_address.1.ip_address=”224.5.6.20:10008”
+• multicast.paging_address.1.label=”Page All”
+Each manufacturer’s Administrator’s or Provisioning Guide contains useful parameters for
+customizing phones. Best practices dictate that you read these guides for all lines of phones
+you intend to support.
+Setting the Scope of a Parameter
+Parameters can be set in different places depending upon to which phones you want the
+parameters applied.
+Entering a Brand Default
+Brand defaults affect all phones for a specific brand. In this example, we’ll apply the Polycom
+paging parameter to all Polycom phones.
+1. In Endpoints Admin UI, go to Configurations > Defaults > Polycom.
+2. Click Add.
+3. Complete the fields (see Table 2-2).
+4. Click Create
+
+Entering a Model Default
+Model defaults affect all phones for a specific model. In this example, we’ll apply the
+Polycom paging to only the VVX 310 phone.
+1. In the Endpoints Admin UI, go to System > Device Definitions.
+2. Click the Model field and select the VVX 310 phone.
+3. In the Overrides field of the edit screen, enter the parameter using the format
+parameter=”value”. To enter multiple parameters, place each parameter on a separate
+line.
+
+
+
+POLYCOM
+Configuration Files
+Polycom has two configuration file formats:
+• SIP
+• UC
+SIP is the older format used by firmware 3.2 and lower. UC is the newer format used by
+firmware 3.3 and later.
+Table 3-1 shows which phones support which format. Some phones support both UC and
+SIP, and can load firmware of both generations.
+It is best to upgrade any SoundPoint and SoundStation to UC-compatible firmware. The
+reason is because they have more features, security fixes, and will be easier to manage, as
+they share the same parameters as the new VVX line.
+How the Endpoints Module Decides Which Configuration
+File to Use
+When the phone requests a configuration file, the Endpoints module responds with either a
+phone SIP or UC configuration file, depending on the following factors:
+• If the phone model contains VVX, the UC format is used.
+• If the override UC=”1” is set in the Model Definitions or Handset/MAC overrides, the UC
+format is used.
+• If the firmware assigned to the phone has uc in the filename (for example,
+sip3_3.uc.ld), the UC format is used.
+• Otherwise, the SIP format is used.
+Bootroms and Firmware
+The following sections describe bootroms and firmware.
+Bootroms
+A bootrom is low-level software designed to power on the phone, start the network, and load
+the firmware. Separate bootroms files apply to phones running 3.3 firmware or lower. In
+UC4, firmware and bootroms are combined into one file. Depending on the version of
+firmware you want to load, you must have the proper bootrom loaded on the Endpoints
+module.
+In the following example, we will load bootrom 4.3.1 for a SoundPoint 550, so the phone can
+use firmware 3.3.5.
+1. Launch a browser, go to the Polycom website, and download the bootrom and release
+notes.
+2. After the bootrom file is downloaded, unzip it.
+3. Locate the unzipped folder, which will be a file full of bootroms named similarly to 3111-
+30900-001.bootrom.ld. In the release notes, find a table relating each model to the
+bootrom filename(s). In our example, we will load 2345-12500-001.bootrom.ld for the
+SoundPoint 550.
+4. In the Endpoints module, go to System > Files and Firmwares, and then click Upload
+File.
+5. Complete the fields (see Table 3-2).
+6. Click Start File Upload and wait for the upload to complete. Polycom phones request a
+new bootrom automatically by exact filename at each boot. Therefore, load the filename
+without renaming it. All phones on your Endpoints module must run the same bootrom
+version.
+Firmware
+Loading firmware is a lot like loading bootroms. However, you can rename the firmware file
+and assign different firmware versions to the same model phone.Split or Combined Firmware
+Polycom offers each firmware in two formats:
+• Split
+• Combined
+The split file breaks out each model’s firmware into separate files. The combined file is one
+file that contains firmware for all compatible phones. While using a combined file sounds
+easier to use than using a split file, the combined file is large (around 300 MB). A split file, by
+comparison, is about 45 MB. If you have a large number of phones upgrading at the same
+time, using split files can save time and resources.Uploading Firmware
+In this example, we will load firmware 5.4.2 rev D for a VVX 310 phone.
+1. Launch a browser, go to the Polycom website, and download the split firmware and release
+notes.
+2. After the firmware file is downloaded unzip it.
+3. Locate the unzipped folder, which will be full of firmware files, named something like 3111-
+30900-001.sip.ld.
+4. In the release notes, find a table relating each model to the firmware filenames. In our
+example we must load 3111-46161-001.sip.ld for the VVX 310.
+5. In the Endpoints module, go to System > Files and Firmwares, and then click Upload
+File.
+6. Complete the fields (see Table 3-3).
+7. Click Start File Upload and wait for the upload to complete.
+Adding Firmware to the Device Definitions
+After firmware is uploaded, you must add it to the device definitions, so it can be loaded to
+phones. The Endpoints module can have multiple firmware versions loaded for each phone
+and you can select which version for each handset/MAC.
+1. Go to System > Device Definitions and select the phone you want to edit (VVX 310 in
+our example).
+2. In the Available Firmware field, enter the filename of the firmware uploaded to make it
+available to the phone. If you want different versions as options, create a comma-
+separated list of each filename. The first firmware on the list will be the “model default” that
+will be the firmware provided to all phones of that model, unless another version is
+specified.
+3. Click Create
+
+
+Upgrading Soundpoint Phones to UC4
+Upgrading a Soundpoint phone from version 3 software to UC4 follows the standard
+directions; however, the bootrom is called the Polycom Upgrader 4.4.0 Utility.
+1. Launch a browser, go to the Polycom website, and download the Polycom Upgrader 4.4.0
+Utility.
+2. Follow the bootrom directions to load the utility to Endpoints module.
+3. Download the desired UC4 firmware from the Polycom website.
+4. Follow the firmware directions to load the firmware to the Endpoints module. Generally,
+you set the UC4 firmware as the model default.
+5. Reboot the phones and wait for the upgrade to complete.
+For more information, refer to the Polycom Engineering Advisory 64731.Downgrading Soundpoint Phones from UC4
+Downgrading a Soundpoint phone from UC4 software to UC4 largely follows the standard
+firmware directions; however, the firmware is called the “Polycom UC Downgrader 4.5.0b
+Utility.”
+1. Download the Polycom UC Downgrader 4.5.0b Utility and follow the firmware directions to
+load it to the Endpoints module.
+2. After the downgrader firmware is uploaded, select it as the active firmware for any phones
+you want to downgrade.
+3. Reboot the phones, and then wait for the upgrade to complete.
+4. When the phone downgrader completes, the phone will be running UC3.3.2 firmware and
+4.5.0 bootrom.
+For more information, refer to the Polycom Engineering Advisory 64731.
+Which Firmware Version Should I Run?
+NetSapiens completed Polycom’s VIP Test plan using select VVX models running firmware
+version 5.3 and SoundPoint models running firmware version 4.0.9. These firmware versions
+are a good place to start. However, new versions of firmware include security improvements,
+bug fixes, and new features. In addition, new phone models, such as the VVX refresh
+phones, D60, and RealPresence Trio, require newer firmware.
+Before deploying new firmware to customers, we recommend you:
+• Keep a lab of your most commonly sold phones before deploying new firmware to
+customers.
+• Test the new firmware with your lab phones against your standard system/network
+configurations.
+4. YEALINK
+Configuration Files
+Yealink has three configuration file formats. Yealink and NetSapiens have a different naming
+method for each format,
+How the Endpoints Module Decides Which Configuration
+File to Use
+Selecting a configuration file format is set as a parameter of each model definition. To review
+and change configuration file formats:
+1. In the Endpoints module Admin UI, go to System>Device Definitions.
+2. In the list of device definitions find the NDP Code Structure column, which specifies the
+configuration format that the model will use.
+3. Edit the device to change the code structure used for that model.
+4. To support two different code structures for the same model, create a second device
+definition for that model, one for each code structure
+Selecting the Right Firmware
+Yealink firmware is available in the support section of the company webpage. Traditionally,
+firmware file names resemble 29.73.0.28.zip, but newer ones resemble T42-
+29.80.0.95.zip
+Uploading Firmware
+In this example, we will load firmware 29.73.0.28.zip for a T42.
+1. Launch a browser, go to the Yealink website, and download the firmware file.
+2. Unzip the firmware file. After the file is unzipped, you’ll have a file similar to
+29.73.0.28.rom.
+3. To load the new file to the Endpoints module, go to System > Files and Firmwares, and
+then click Upload File.
+4. After you complete the fields, click Start File Upload and wait for the upload to complete.
+Selecting Firmware
+After you upload the firmware, add an override to tell the phone which file to use. We set this
+as a model default in Device Definitions, although it can also be set as a Handset/MAC
+override. To do so, the override is firmware.url=”http://<Endpoints-
+FQDN>/frm/<filename>”.
+Do not set firmware.url as a brand or domain default because it could apply firmware to a
+different phone model.
+Upgrading from 6x to 7x Firmware
+To upgrade phones running version 6x firmware to version 7x firmware, send the phone a
+Yealink/M1 format configuration file with the new firmware information. The following
+procedure describes the easiest way to perform this step, but there are other ways to do
+this.
+When booting a Yealink phone, the phone looks for a common or “y” file. For a T26, the
+filename is y000000000004.cfg.
+Note: The common file number does not correlate with the firmware model number.
+In this file, you can place commands in the Yealink/M1 format to upgrade to new firmware
+The following is a template of the common file contents for upgrading firmware
+1. Copy and paste the above into a plain-text file.
+2. Replace <Your-Endpoints_IP> with the IP or FQDN of your Endpoints module.
+3. Replace <filename>.rom with the filename of the 7x firmware for the specific phone
+model.
+4. Save the file with the common file name and upload to Files and Firmware section in the
+Endpoints Admin UI.
+5. Reboot the phones to have them apply the new firmware.
+For more information, refer to the V70 Upgrading Manual, which you can download from the
+Yealink website.
+Which Version Firmware Should I Run?
+NetSapiens completed Yealink’s Compatibility Test plan using select models running
+firmware versions 72 and 73. However, new firmware versions include security
+improvements, bug fixes, and new features. In addition, new phone models (T49g, and so
+on) require newer firmware.
+Before deploying new firmware to customers, we recommend you:
+• Keep a lab of your most commonly sold phones before deploying new firmware to
+customers.
+• Test the new firmware with your lab phones against your standard system/network
+configurations.
+Running a New Device Not in the Device List
+There might be situations when you want to run a new device that is not in the device list.
+There are two cases for this situation:
+• The new device uses the same configuration file as other provisionable devices. For
+example, Polycom releases a VVX 800 that uses the same UC configuration format as
+other VVX phones.
+• The new device uses a different configuration file than other provisionable devices. For
+example, the Algo door phone does not use the same format or parameters as other
+devices.
+Generally speaking new devices in the same brand use the same configuration file format.
+But there are exceptions, which can be solved with the Custom File Format.
+Phones that are not from the same brand as other provisionable devices likely will need a
+custom file format.
+New Device with an Existing Format
+For devices that use the same configuration file format as other phones, adding a new
+device configuration is fairly simple.
+1. In the Endpoints Admin UI, go to System > Device Definitions, and then click Add.
+2. Complete the fields (see Table 5-1).
+3. Click Create.
+After a new configuration is defined, the Endpoints module is ready to configure the new
+phone model.
+New Device without an Existing Format
+The custom file format allows you to provision nearly any brand of phone by defining your
+own configuration file formats.
+This works by allowing you to take a properly formatted configuration file template for a
+given device, and then add wildcards that the Endpoints module completes with values such
+as the proxy and user to make an operational configuration file.
+Observe the following guidelines:
+• Compatible devices are those that accept a text/XML configuration file. Binary or
+encrypted configuration files are not supported.
+• You must run Endpoints module version 1225 or later.
+• The new API must be used for the Core connection (see Chapter 7 if unsure).
+• Brand defaults and device/model/MAC overrides do not apply to custom format-
+provisioned devices.
+• Directories are not available to be applied to custom format provisioned devices.
+• Custom formats can configure a maximum of eight lines on a device.
+• Use a plain-text editor such as Notepad++ to edit and save configuration files. Do not use
+programs such as Microsoft Word, which add extra formatting.
+Making the Configuration File
+To make the configuration file:
+1. Obtain a configuration file for the device in question. The easiest to way to start is to
+provision the device manually, and then export the configuration. If this is not an option,
+obtain the provisioning file format from the manufacturer.
+2. Edit the file with the default values you want applied to all phones (admin password,
+registration period, and so on). Fill in the wildcards for fields such as user, password,
+domain, and outbound proxy. The list of wildcards is shown below:
+Some parameters have wildcards, while others do not. The registration interval
+sip.regexp, for example, is the same for all devices. Other parameters, such as
+sip.proxy, have a wildcard because that value varies, depending on the domain assigned.
+Creating a New NDP Code Type
+After you create a new template:
+1. Upload the file with any name into the NDP Files and Firmware section.
+2. In the Endpoints Admin UI, go to System > Custom Formats, and then click Add.
+3. Specify the name of the format and filename you uploaded previously, and then click
+Create.
+Now that the format is set, you can follow the directions under “New Device with an Existing
+Format” on page 39 to add the device definition.
+Loading the Configuration File
+Now that the configuration is made, add the device’s MAC like any normal device (see
+Adding a Phone on page 12. In the device interface, look for the provisioning server
+configuration (varies by make/model) and point the device to your Endpoints module.
+Managing Pre/Postfix on the Requested Configuration File
+If the phone doesn't configure:
+1. In the Endpoints module, go to Diagnostics > Events.
+2. Look for the configuration file that the phone requested. The Endpoints module must be
+aware of the pre/postfix to strip from the filename to derive the MAC address. Common
+pre/postfixes that are already stripped include .cfg, .conf, .html, and poly-.
+3. If the phone has an unusual pre/postfix, such as foo000000000012.bar:
+d. Go to System > Configuration.
+e. Add the unusual values (for instance, foo and bar in our example) as a comma-
+separated list to the configuration parameter PreParseStrip, as shown below:
+. DIRECTORIES
+Selecting a Directory
+Directories can be selected using the Portal or the Endpoints Admin UI.
+Using the Portal to Select a Directory
+1. In Inventory, edit the phone.
+2. Click the Advanced tab.
+3. In the Directory field, click the directory that you want to apply to the phone.
+4. Click Save.
+Using the Admin UI to Select a Directory
+1. In the Admin UI, click Configurations > Devices for the phone you want to edit.
+2. Below the Directories column, click a link.
+The Admin UI also provides a Presence toggle that might show the following options:
+• BLF – shown for Polycom only. Select this option for UC firmware (defaults to BLF for
+VVX).
+• Enabled – configures presence (like BLF) to show on the phone.
+• Disabled – no presence status appears for directory entries.
+Creating a Custom Directory in the Directory Designer
+Directory Designer allows you to create custom directories with more flexibility than the
+automatic directories.
+To create a custom directory:
+1. In the Endpoints Admin UI, go to Configurations > Directory Designer.
+2. Click Add
+4. Click Create.
+After you create a directory, you return to the directory listing, where you can modify your
+directory by clicking Modify Directory.
+When you edit a directory, a screen similar to the following appears.
+The directory shows the list of users in the first five columns (these columns show the order,
+but not necessarily the column placement on the phone). The Unused user entries column
+allows you to place users you want to remove, but not delete, from the directory.
+To rearrange users, drag and drop them in order between the Speed Dials columns and
+Unused user entries column.
+Table 6-3 describes the buttons at the bottom of this page.
+Note: These directories do not update automatically. If you rename user 100 from Betty to
+Susan in the Portal or Core Admin UI, for example, the directory does not automatically
+reflect the change
+7. CONNECTING TO CORES
+Validating API Version
+The Endpoints modules and Core(s) can communicate via the old or new API.
+To check which is being used:
+1. In the Endpoints Admin UI, go to System>Configuration.
+2. Look for the parameter useOauth:
+– If useOauth is set to yes, the new API is being used.
+– If useOauth is missing or set to no, the old API is being used.
+Note: Systems running version 1225 or later of the Endpoints module should use the new
+API.
+Geo Clusters
+While phones have a primary Core assigned to them, enabling geo-redundancy allows the
+phone to be programmed with other Core(s) in the cluster in case its primary Core suffers an
+outage.
+If you have geo-redundant Cores:
+1. In the Endpoints Admin UI, go to System > Configuration.
+2. Ensure that the parameter Redundancy is set to yes.
+The group itself is defined in the Endpoints Admin UI:
+1. Go to Configuration > SiPbx Servers.
+2. In the column Redundancy Group, any Core that shares the same value of the
+Redundancy Group field is part of the same geo cluster
+Adding a New Core Node to the Endpoints Module
+To add a new Core node to Endpoints module, collect information from the Core and ensure
+its configured properly.
+Preparing the Core
+1. In the Admin UI of the Core Module, go to System > Settings > Advanced > Oauth
+Clients.
+2. Identify an existing Oauth credential for the Endpoints module or create a new one.
+3. Copy the Client ID and Client Secret.
+4. Go to Users > Configuration and edit or create a User with a Scope of NDP.
+5. Copy and retain the Login Name.
+6. Copy and retain the PIN.
+Adding the Server to the Endpoints Module
+The last step is to add the server to the Endpoints module.
+1. In Endpoints Admin UI, go to Configurations > SiPbx Servers.
+2. Click Add.
+3. Complete the fields (see Table 7-1).
+4. Click Create.
+How Geo Redundancy Works
+If you have geo-redundant Cores, your phones are automatically provisioned differently to
+support this feature. Some phones accomplish this via service (SRV) records, while others
+use a primary and backup proxy.
+Phones like Cisco and Grandstream use the SRV record method. The SRV record
+core.mycompany.com, for example, would contain DNS information for each Core in the
+cluster, along with a priority. These phones register to the highest priority Core available.
+Each phone manufacturer decides when to consider a Core unavailable and switch to a
+backup Core, as well as when to switch back if a higher priority Core becomes available
+again.
+Other phones, like Polycom and Yealink (NDP 1225 or later), will dual register, maintaining
+constant registration to two Cores. This has an advantage of faster recovery in case of
+failure, but generally limits redundancy to two Cores only.
+Yealink phones allow you to force SRV instead of dual registration If you have geo-redundant Cores, you can configure redundancy settings in the Endpoints
+Admin UI by going to System > Configuration and setting the value of the parameter
+Redundancy to yes.
+The parameter Redundancy_default sets the default redundancy method. Acceptable
+values are:
+– none = disables geo.
+– force primary = enables geo.When editing a MAC, you can override the default redundancy setting for the specific phone.
+8. SECURITY
+SAFE
+SAFE is an intelligent filter that protects configuration files from dictionary attacks. SAFE
+monitors requests for configuration files, and then adds to the score of the requester IP
+address if they request a file for a MAC that does not exist. Files such as license files and
+zero files are ignored.
+SAFE was added in version 1224 and is enabled by default. To customize this setting:
+1. In the Endpoints Admin UI, go to System > Configurations.
+2. The following parameters can be set to configure SAFE:
+– SAFE_whitelist = comma-separated list of IP addresses that will not be part of this
+logic. To disable filtering, select *.
+– SAFE_error_empty = yes returns an empty 200 ok message instead of a 403
+message on error.
+– SAFE_error_500 = yes returns a 503 message instead of a 403 message on error.
+– SAFE_MaxFraudScore = maximum number of fail attempts permitted before a
+permanent IP block is in place. Default is 50 (version 1225+).
+Reviewing the SAFE Fraud Scores
+SAFE versions 1225 and later allow you to see the current status of SAFE fraud scores:
+1. Go to Diagnostics>Fraud Scores by IP.
+2. To clear the fraud score for the IP, click Allow under the Action column.
+Handset Security
+Gaining registration credentials through handsets is the most common attack vector on any
+system. To combat this vulnerability:
+• Disable all local interfaces on the phone (web, Telnet, SSH, and so on), as local
+configuration is generally not necessary with the Endpoints module.
+Change the default passwords on phones and deploy them whenever possible behind a
+NAT firewall rather than with a public IP
+Password Protecting Files
+This option requires the phone to authenticate when requesting a configuration file. While
+this security measure is powerful, it is more difficult to deploy because each phone must be
+preconfigured with this information. If you use this feature, prepare your system prior to
+enabling this feature; otherwise, provisioning will fail.
+Updating Deployed Phones
+For phones already deployed, you can assign the username and password using overrides
+and forcing a resync/reboot of the phones. For specific parameters, refer to the
+manufacturer’s admin or provisioning guide.
+Be sure to check the valid input range for the provisioning username and password on each
+phone, then select a username and password for the system that are within the input ranges
+for all phone brands you use. For example, if Panasonic allows you to enter up to 128
+characters as the password, but Yealink allows only 32 characters, set your password to 32
+characters or less to support both phones.
+Provisioning New Phones
+For future deployment of phones, the best way to assign usernames and passwords is to
+use a pre-provisioning service, such as Polycom ZTP and Yealink RPS. Doing so ensures
+that phones will automatically fetch this information, even after they are reset to factory
+default settings.
+Enabling Password Protection
+After all deployed phones have the username and password set, and new phones receive
+that information via pre-provisioning, you’re ready to enable password protection.
+1. In the Endpoints Admin UI, go to System > Configuration.
+2. Add or edit the following properties:
+– PasswordProtectFiles = set to yes to enable password protection.
+– username: enter the authentication username you selected.
+– Password = enter the authentication password you selected.
+3. Optional: Set PerDevicePasswords to yes to allow overriding the default username and
+password at the MAC level. Then, when you edit a phone in the Endpoints Admin UI, there
+will be fields to set the username and password just for this device
+Disabling TFTP
+SAFE and password protection do not protect Trivial FTP (TFTP). Consequently, it is
+preferred to provision phones using HTTP or HTTPS instead, and then disable TFTP
+whenever possible.
+For each phone model whose TFTP provisioning you want to disable.
+Note: Older phones like the Cisco 79xx do not support HTTP/HTTPS. If you use these
+phones, leave TFTP enabled for those models.
+1. In the Endpoints Admin UI, go to System > Device Definitions.
+2. Set Allow TFTP to no
+Secure Admin Login
+To protect your administrative login, ensure good quality passwords. Beyond that, you can
+configure the web server to allow logins only from specific IP addresses you know.
+Perform the following steps at the command line:
+Note: The NetSapiens IP address is 66.185.162.140.
+1. Edit or create the .htaccess file using the following command:
+pico /usr/local/NetSapiens/ndp/.htaccess
+2. Add the following information to the file
+Order deny,allow
+Deny from all
+Allow from 127.0.0.1
+Allow from <your IP>
+Allow from 66.185.162.140
+3. Reboot Apache:
+service apache2 restart
+9. DIAGNOSTICS AND LOGS
+
+whay is Sync
+Sync refers to the endpoint pulling a configuration file from the Endpoints module. When
+viewing the list of devices in the Configurations > Phones page of the Endpoints Admin UI,
+three sync related columns appear next to each device.
+Re-sync sends the message SIP NOTIFY to the phone to instruct it to pull a new
+configuration file. Some devices reboot when they receive the re-sync message, while
+others apply the new configuration without rebooting. The phone must be registered to a
+Core for re-sync to be successful.
+The Last sync of current cfg column shows the last time and date the endpoint pulled a
+configuration file from the Endpoints module. The Cfg last changed column shows the last
+time handset-specific changes (device overrides, line changes, directories, and so on) were
+applied. These two timestamps can help identify whether the phone has a current
+configuration and is in communication with the Endpoints module.
+
+What are Events
+Event is a history of specific details about endpoint communication. For example, when a
+phone requests a configuration file, that request will be detailed along with any other
+requested files such as licenses, ringtones, firmwares, and so on. Errors generated by bad
+configuration parameters might also appear here. For example, a Cisco SPA device’s
+configuration file runs through a Cisco “compiler” tool and errors are output to the Events
+table. The Endpoints module collects boot and app logs from Polycom devices. These logs can be
+viewed in the Diagnostics > Logs. Although these logs are rather terse, they can be helpful
+for identifying handset problems (for example, wrong bootrom or firmware). Most commonly,
+the logs will be sent to Polycom support for analysis when dealing with a phone problem.

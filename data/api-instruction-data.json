@@ -1,0 +1,134 @@
+[
+    {
+        "question": "read  all the phones",
+        "answer": "GET /phones"
+    },
+   {
+        "question": "add a new phone ",
+        "answer": "POST /phones body={}"
+    },
+   {
+        "question": "update the existing  phone ",
+        "answer": "PUT /phones"
+    },
+   {
+        "question": "remove or delete  the existing  phone",
+        "answer": "DELETE /phones"
+    },
+   {
+        "question": "read  all the phone in the domain mgoud ",
+        "answer":  "GET /domains/mgoud/phones"
+    },  {
+        "question": "get count of all the phone? ",
+        "answer":  "GET /phones/count"
+    },
+   {
+        "question": "add a new phone  for the domain bparikh ",
+        "answer":  "POST /domains/bparikh/phones"
+    },
+   {
+        "question": "update an existing phone in the domain nchuda ",
+        "answer":  "PUT /domains/nchuda/phones"
+    },
+  {
+        "question": "remove  a phone in the domain jackson ",
+        "answer":  "DELETE /domains/jackson/phones"
+    },
+
+  {
+        "question": "get devices for a user in the  domain wang ",
+        "answer":  "GET /domains/wang/users/{user}/devices"
+    },
+ {
+        "question": "create a new  device for a user in the domain wang ",
+        "answer":  "POST /domains/wang/users/{user}/devices"
+    },
+
+   {
+        "question": "update a device for a user in the domain chris ",
+        "answer":  "PUT /domains/chris/users/{user}/devices/{device}"
+    },
+  {
+        "question": "delete  a device for a user in the domain damien ",
+        "answer":  "DELETE /domains/damien/users/{user}/devices/{device}"
+    },
+  {
+        "question": "get  a specific device for a user in the domain mgoud ",
+        "answer":  "GET /domains/mgoud/users/{user}/devices/{device}"
+    },
+  {
+        "question": "get  the count of  devices for a user in the domain johmston ",
+        "answer":  "GET /domains/johmston/users/{user}/devices/count"
+    },
+
+      {
+        "question": "read  all the phone  ",
+        "answer": "GET /phones"
+    },
+   {
+        "question": "add a new phone",
+        "answer": "POST /phones"
+    },
+   {
+        "question": "update the existing  phone",
+        "answer": "PUT /phones"
+    },
+   {
+        "question": "remove or delete  the existing  phone",
+        "answer": "DELETE /phones"
+    },
+   {
+        "question": "read  all the phone in the domain johmston? ",
+        "answer":  "GET /domains/johmston/phones"
+    },  {
+        "question": "get count of  all the phone? ",
+        "answer":  "GET /phones/count"
+    },
+   {
+        "question": "add a new phone for the domain wang ",
+        "answer":  "POST /domains/wang/phones"
+    },
+   {
+        "question": "update an existing  phone in the domain  amal",
+        "answer":  "PUT /domains/amal/phones"
+    },
+  {
+        "question": "remove  a phone in the domain mgoud ",
+        "answer":  "DELETE /domains/mgoud/phones"
+    },
+      {
+        "question": "read  phone",
+        "answer": "GET /phones"
+    },
+   {
+        "question": "add a new phone",
+        "answer": "POST /phones"
+    },
+   {
+        "question": "update the existing  phone",
+        "answer": "PUT /phones"
+    },
+   {
+        "question": "remove or delete  the existing  phone ",
+        "answer": "DELETE /phones"
+    },
+   {
+        "question": "read  all the phone in the  domain chris ",
+        "answer":  "GET /domains/chris/phones"
+    },  {
+        "question": "get the count of all the phone ? ",
+        "answer":  "GET /phones/count"
+    },
+   {
+        "question": "add a new phone for the domain damien ",
+        "answer":  "POST /domains/damien/phones"
+    },
+   {
+        "question": "update an existing  phone in the domain damien ",
+        "answer":  "PUT /domains/damien/phones"
+    },
+  {
+        "question": "remove  a phone in the domain wang",
+        "answer":  "DELETE /domains/wang/phones"
+    }
+]

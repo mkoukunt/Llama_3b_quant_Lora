@@ -1,0 +1,154 @@
+[
+    {
+        "question": "read  all the phones? ",
+        "answer": "<think>it has 1 task <think><task>read all the phones<task>"
+    },
+   {
+        "question": "add a new phone then update the  existing phone? ",
+        "answer": "<think> it has 2 tasks<think><task>add the new phone >> update the existing  phone"
+    },
+   {
+        "question": "update an existing  phone and  delete  an existing  phone? ",
+        "answer": "1.update the existing  phone  2. delete  the existing  phone"
+    },
+   {
+        "question": "add a new phone   then update the existing  phone and remove or delete  the existing  phone ? ",
+        "answer": "1.Add the new phone  2.  update the existing  phone 3. delete the existing phone"
+    },
+   {
+        "question": "read  all the phone is a domain ? ",
+        "answer":  "1.read  all the phones in a domain "
+    },  {
+        "question": "get count of  all the phones ? ",
+        "answer":  "1.get count of all the phones"
+    },
+
+  {
+        "question": "get count of   all the phones in the  domain mgoud and read  all the phones in the  domain mgoud? ",
+        "answer":  "1.get count of   all the phones in the domain <mgoud> 2.read  all the phones in the  domain <mgoud>"
+    },
+
+   {
+        "question": "add a new phone for the domain mgoud? ",
+        "answer":  "1.add a new phone for the domain <mgoud> "
+    },
+   {
+        "question": "update an existing  phone in the domain <mgoud> ? ",
+        "answer":  "1. update the existing  phone in the domain <mgoud> "
+    },
+  {
+        "question": "add a new phone for the domain mgoud then update an existing  phone in the domain mgoud? ",
+        "answer":  "1.  add a new phone for the domain <mgoud>   2. update an existing  phone in the  domain <mgoud> "
+    },
+
+  {
+        "question": "remove  a phone in the domain bparikh? ",
+        "answer":  "1. please  remove  a phone in the  domain <bparikh>"
+    },
+
+  {
+        "question": "add a new phone  for the domain bparikh and  update an existing  phone in the  domain  bparikh and then remove  a phone in the  domain bparikh? ",
+        "answer":  "1. add a new phone for the  domain <bparikh>   2. update an existing  phone in the  domain <bparikh> 3. remove  a phone in the  domain <bparikh>"
+    },
+
+
+  {
+        "question": "get devices for a user in the domain kdabake? ",
+        "answer":  "1. get devices for a user in the domain <kdabake>"
+    },
+ {
+        "question": "create a new  device for a user in the  domain kdabake? ",
+        "answer":  "1. create a new  device for a user in the domain <kdabake>"
+    },
+
+   {
+        "question": "update a device for a user in the  domain kdabake? ",
+        "answer":  "1. update a device for a user in the  domain <kdabake>"
+    },
+
+  {
+        "question": "create a new  device for a user in the domain kdabake  and update a device for a user in the domain kdabake?",
+        "answer":  "1. create a new  device for a user in the  domain <kdabake> 2.update a device for a user in the domain <kdabake>"
+    },
+
+
+  {
+        "question": "delete  a device for a user in the  domain kdabake? ",
+        "answer":  "1. delete  a device for a user in the  domain <kdabake>"
+    },
+
+   {
+        "question": "delete  a device for a user in the domain mgoud then update a device for a user in the domain mgoud then please create a new  device for a user in the  domain mgoud? ",
+        "answer":  "1. delete  a device for a user in the domain <mgoud> 2. please update a device for a user in the domain <mgoud>  3. please create a new  device for a user in the  domain <mgoud>"
+    },
+
+
+
+  {
+        "question": "get  a specific device for a user in the domain mgoud? ",
+        "answer":  "1. get  a specific device for a user in the domain <mgoud>"
+    },
+  {
+        "question": "get  the count of  devices for a user in the domain mgoud ? ",
+        "answer":  "1. get  the count of  devices for a user in the domain <mgoud>"
+    },
+
+      {
+        "question": "read  all the phones for the domain nchuda? ",
+        "answer": "1. read  all the phones for the domain <nchuda>"
+    },
+   {
+        "question": "add a new phone for the  domain nchuda ? ",
+        "answer": "1.add a new phone for the domain <nchuda>"
+    },
+  {
+        "question": "read  all the phone and then can you please add a new phone ? ",
+        "answer": "1.read  all the phone 2. please add a new phone"
+    },
+
+   {
+        "question": "update the existing  phone ? ",
+        "answer": "1. update the existing  phone"
+    },
+   {
+        "question": "remove or delete  the existing  phone ? ",
+        "answer": "1. remove or delete  the existing  phone"
+    },
+    {
+        "question": "remove or delete  the existing  phone  and update the existing  phone ? ",
+        "answer": "1. remove or delete  the existing  phone  2. please update the existing  phone"
+    },
+    {
+        "question": "Get All the SMS Numbers for System? ",
+        "answer": "1. Get All the SMS Numbers for System"
+    },
+  {
+        "question": "Get All the SMS Numbers for the domain mgoud? ",
+        "answer": "1. Get All the SMS Numbers for the domain <mgoud>"
+    },
+  {
+        "question": "Create SMS Number for  the domain mgoud? ",
+        "answer": "1. Create SMS Number for  the domain <mgoud>"
+    },
+  {
+        "question": "update  SMS Number for  the domain mgoud? ",
+        "answer": "1. update SMS Number for  the domain <mgoud>"
+    },
+    {
+        "question": "delete  SMS Number for  the domain mgoud? ",
+        "answer": "1.delete SMS Number for  the domain <mgoud>"
+    },
+    {
+        "question": "Get SMS Numbers for a User in  the domain mgoud? ",
+        "answer": "1.Get SMS Numbers for a User in  the domain <mgoud>"
+    },
+    {
+        "question": "Get count of SMS Numbers for a User in  the domain mgoud? ",
+        "answer": "1.Get count of SMS Numbers for a User in  the domain <mgoud>"
+    }
+
+
+
+
+
+]

@@ -1,0 +1,77 @@
+[
+    {
+        "question": "What is the  Netsapiens Endpoints Module User Guide? ",
+        "answer": "The Netsapiens Endpoints Module User Guide provides an overview of how the Endpoints module works and how to use its core features. It explains how to add and manage devices and gateways, as well as how to configure the various parameters associated with them. The document is intended to help users understand and effectively use the tools available within the Netsapiens Endpoints module.\nThe Endpoints module handles the provisioning of phones and analog telephone adapters (ATAs). It does this by generating configuration files for each make and model of phone based on the parameters you set in the SNAPsolution system.\nThe Endpoints module can also host firmware and boot ROMs, allowing you to upgrade or downgrade phones.In addition, the Endpoints module functions as a syslog server. Phones can be configured to send syslog data to the Endpoints module, and these entries can be viewed in the Events table."
+    },
+    {
+        "question": "What is the  relationship between The Endpoints module login credentials and the Core Module password? ",
+        "answer": "The Endpoints module login credentials do not change when you update the Core Module password, as these modules do not have a one-to-one relationship. Therefore, be sure to change the default login credentials under System > Admin Accounts."
+    },
+   {
+        "question": "What NetSapiens is responsible for supporting?",
+        "answer": "NetSapiens is responsible for supporting the Endpoints module, but not devices such as phones and ATAs. For device-specific support, contact the device manufacturer."
+    },
+   {
+        "question": "What type of devices generally NetSapiens Endpoints module supports?",
+        "answer": "The Endpoints module generally supports new phone models, as long as they follow the configuration format of prior models. For example, as of the writing of this manual, Polycom has introduced the RealPresence Trio 8800, which uses the same UC file format as other phones and can be provisioned.\nThis guide references Polycom and Yealink devices, as they are the most popular within the SNAPsolution user base. However, other brands, such as Cisco, Grandstream, Panasonic, and others, can also be provisioned using the Endpoints module.\nWhen a manufacturer introduces a new configuration file format, NetSapiens evaluates the popularity of that device and brand within the user base and may include native support for the phone in future releases."
+    },
+    {
+        "question": "What is the Endpoints module Custom File Format?",
+        "answer": "The Endpoints module also includes a Custom File Format feature, which allows you to add support for nearly any device. The Endpoints module also functions as a syslog server."
+    },
+
+     {
+        "question": "What is the syslog events or the data?",
+        "answer": "The Endpoints module also functions as a syslog server. Phones can be configured to send syslog data to the Endpoints module, and these entries can be viewed in the Events table."
+    },
+
+    {
+        "question": "What are the steps to login into Endpoints module?",
+        "answer": "1.Launch a web browser.\n2.In the browser address bar, enter https://<endpoints-FQDN>/ndp/adminlogin.php.\n3.On the login page, enter the default username and password (both are tac on a new system). For security, each character typed in the password field is masked with a dot.\n4.Click Login."
+    },
+
+    {
+        "question": "What is the Endpoints module Model Compatibility",
+        "answer": "Every phone manufacturer uses a different configuration file format, and some manufacturers even vary the format between models within the same brand. For example, some configuration files are plain text, while others are XML. Each company also uses different parameters and formatting.\nThe Endpoints module abstracts these differences by handling configuration formats for a variety of popular phone makes and models.\nFor example:\n• Polycom uses older “SIP” and newer “UC” configuration file formats.\n• Yealink uses M1, M3, and M7 configuration file formats.\n• Grandstream uses an older encrypted file format and a newer XML format."
+    },
+
+   {
+        "question": "Brief about device or phone Provisioning ",
+        "answer": "At boot, phones attempt to retrieve a configuration file from a provisioning service. The location of the configuration file can be set via Dynamic Host Configuration Protocol (DHCP) options, manual entry on the phone, or redirection services such as Polycom’s ZTP and Yealink’s RPS.\nIf the phone successfully retrieves the configuration file(s), it attempts to apply the new configuration. Depending on the phone, it may also attempt a boot ROM or firmware upgrade."
+    },
+  {
+        "question": "What are the different ways to add a new Phone in the Endpoints module?",
+        "answer": "New Phones can be added using either the Portal or the Endpoints Admin UI."
+    },
+   {
+        "question": "What are the steps to add a Phone Using the User Portal?",
+        "answer": "After logging in to the Portal, you can add a phone using the Add Phone page\n1.Click Inventory, then select the Phone Hardware tab.\n2.Click Add Phone. The Add Phone page appears with the Basic tab displayed.\n3.On the Basic tab, complete the required fields.\n4.Click Save to add the phone.\n5.Repeat steps 2 through 4 to add a second phone."
+    },
+  {
+        "question": "What are the steps to add  a Phone Using the Admin portal in the Endpoints module?",
+        "answer": "1.Go to Configurations > Devices.\n2.Click Add Configuration.\n3.On the first screen:\na. Enter the MAC address of the device. Omit any formatting such as dashes or colons.\nb. Select the model of the device and the SiPbx Server or Domain. The SiPbx Server appears as an option if the Endpoints module configures devices on multiple Cores; otherwise, Domain appears as an option.\nc. Click Select to continue.\n4.If prompted, select the domain and then click Select Domain.\n5.Finally, you are taken to a page to associate lines with the device. After assigning the lines, click Create to save the new device."
+    },
+   {
+        "question": "What are the steps to select a different firmware?",
+        "answer": "1.In the Endpoints Admin UI, go to Configurations > Devices.\n2.Identify the device you want to edit, and click the link in the Used Lines column.\n3.On the device edit page, locate the firmware entry and select the specific firmware you want to assign to the device."
+    },
+
+  {
+        "question": "What are the different type of default parameters exist in the Netsapiens Endpoints module?",
+        "answer": "Domain specific Default parameters, Brand  specific Defaults parameters and Device  specific Default parameters."
+    },
+
+    {
+        "question": "What are the  Netsapiens Endpoints module Domain specific default parameters?",
+        "answer": "Domain specific default parameters  apply to all the phones only in a specific domain.  Follow Below steps to add Domain specific Default parameters  in the Endpoints module\n1. In Endpoints Admin UI, go to Configurations > Defaults > Domain Specific.\n2. Click Add.\n3. Complete the fields.\n4. Click Create"
+    },
+  {
+        "question": "What are the  Netsapiens Endpoints module Brand-specific default parameters?",
+        "answer": "Brand-specific defaults affect only phones of that brand. The parameter applies only to the phones of that brand within the specified domain. Follow Below steps to  add  Brand specific Defaults in the Netsapiens Endpoints module.\n1. In Endpoints Admin UI, go to Configurations > Defaults > Any brand.\n2. Click Add.\n3. Complete the fields\n4. Click Create"
+    },
+   {
+        "question": "What are the  Netsapiens Endpoints module Device  specific default parameters?",
+        "answer": "Device  specific Default parameters applies to  one specific phone only.Follow Below steps to  add Device  specific Defaults in the Endpoints module.\n1. In Endpoints Admin UI, go to Configurations > Devices.\n2. Identify the device you want to edit, and then click the link below the Device Model column.\n3. In the Overrides field, enter the parameters and values using the format parameter=”value”. Enter multiple parameters on separate lines.\n4. Click Modify"
+    }
+
+]
