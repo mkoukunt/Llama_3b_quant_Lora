@@ -328,7 +328,7 @@ torch.manual_seed(123)
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.00005, weight_decay=0.1)
 
-num_epochs = 60
+num_epochs = 50
 
 train_losses, val_losses, tokens_seen = train_model_simple(
     model, train_loader, val_loader, optimizer, device,
@@ -339,5 +339,5 @@ train_losses, val_losses, tokens_seen = train_model_simple(
 end_time = time.time()
 execution_time_minutes = (end_time - start_time) / 60
 print(f"Training completed in {execution_time_minutes:.2f} minutes.")
-model.save_pretrained("./Laala-3.2-3B-ndp-inst-api")
-tokenizer.save_pretrained("./Laala-3.2-3B-ndp-inst-api")
+model.save_pretrained("../Laala-3.2-3B-ndp-inst-api")
+tokenizer.save_pretrained("../Laala-3.2-3B-ndp-inst-api")

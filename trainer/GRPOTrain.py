@@ -19,13 +19,12 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16, # Or torch.bfloat16
     bnb_4bit_use_double_quant=True
 )
-peft_model_id = "./Laala-3.2-3B-quant-task"
+peft_model_id = "../Laala-3.2-3B-ndp-inst-api"
 config = PeftConfig.from_pretrained(peft_model_id)
 print(config.base_model_name_or_path)
 
 SYSTEM_PROMPT = """
-You are an helpful assistant converts user request into individual tasks.
-Write a answer that appropriately provides the  individual tasks
+You are an helpful assistant understands the user question and provides the correct tool name to call along with  the arguments to pass to the tool.
 """
 
 model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path,
@@ -57,7 +56,8 @@ for param in model.parameters():
       return super().forward(x).to(torch.float32)
   #model.lm_head = CastOutputToFloat(model.lm_head)
   model.lm_head.weight.data = model.lm_head.weight.data.to(torch.float32)
-model = get_peft_model(model, lora_config)
+
+model = PeftModel.from_pretrained(model,peft_model_id)
 model.to("cuda")
 
 def download_and_load_file(file_path, url):
@@ -65,7 +65,7 @@ def download_and_load_file(file_path, url):
         data = json.load(file)
     return data
 
-file_path = "./data/api-task-split-data-rl.json"
+file_path = "../data/ndp-instruction-rl.json"
 url = (
     "https://raw.githubusercontent.com/rasbt/LLMs-from-scratch"
     "/main/ch07/01_main-chapter-code/instruction-data.json"
@@ -90,12 +90,15 @@ class InstructionDataset(Dataset):
         self.encoded_texts = []
         for entry in data:
             dt={'prompt':[{'role': 'system', 'content': SYSTEM_PROMPT},# One-shot examples can be added here if desired.
-            {'role': 'user', 'content': entry['prompt']}], 'answer': entry['answer']}
+            {'role': 'user', 'content': entry['question']}], 'answer': entry['answer']}
 
             self.encoded_texts.append(dt)
 
 
+
+
     def __getitem__(self, index):
+        print(self.encoded_texts[index])
         return self.encoded_texts[index]
 
     def __len__(self):
@@ -161,11 +164,11 @@ def get_gsm8k_questions(split="train") -> Dataset:
     # Load and process the GSM8K dataset.
     data = train_dataset
     data = data.map(lambda x: {
-        'prompt': [
+        'prompt': tokenizer .apply_chat_template([
             {'role': 'system', 'content': SYSTEM_PROMPT},
             # One-shot examples can be added here if desired.
             {'role': 'user', 'content': x['question']}
-        ],
+        ]),
         'answer': extract_hash_answer(x['answer'])
     })
     return data
@@ -176,7 +179,7 @@ start_time = time.time()
 torch.manual_seed(123)
 
 
-num_epochs = 60
+num_epochs = 2
 
 #dataset = load_dataset("./data/api-task-split-data.json", split="train")
 
@@ -187,7 +190,9 @@ def extract_xml_answer(text: str) -> str:
     answer = text.split("<answer>")[-1]
     answer = answer.split("</answer>")[0]
     return answer.strip()
+
 def correctness_reward_func(prompts, completions, answer, **kwargs) -> list[float]:
+    print(prompts)
     # Compares the model's output with the expected answer.
     responses = [completion[0]['content'] for completion in completions]
     q = prompts[0][-1]['content']
@@ -196,18 +201,26 @@ def correctness_reward_func(prompts, completions, answer, **kwargs) -> list[floa
           f"\nAnswer:\n{answer[0]}",
           f"\nResponse:\n{responses[0]}",
           f"\nExtracted:\n{extracted_responses[0]}")
-    return [2.0 if r == a else 0.0 for r, a in zip(extracted_responses, answer)]
+    return [safe_compare(r,a) for r, a in zip(extracted_responses, answer)]
+def safe_compare(r, a):
+    try:
+        # Attempt to parse both JSON strings
+        return 2.0 if json.loads(r) == json.loads(a) else 0.0
+    except (json.JSONDecodeError, TypeError, ValueError):
+        # Return 0.0 if decoding fails
+        return 0.0
 tokenizer.chat_template="{%- for message in messages %} {{- '<|' + message['role'] + |>\n' }}    {{- message['content'] + eos_token }}{%- endfor %}{%- if add_generation_prompt %}    {{- '<|assistant|>\n' }}{%- endif %}"
 trainer = GRPOTrainer(
     model=model,
     reward_funcs=correctness_reward_func,
     train_dataset=train_dataset,
-    processing_class=tokenizer
+
+
 )
 trainer.train()
 
 end_time = time.time()
 execution_time_minutes = (end_time - start_time) / 60
 print(f"Training completed in {execution_time_minutes:.2f} minutes.")
-model.save_pretrained("./Laala-3.2-3B-quant-inst-rl")
-tokenizer.save_pretrained("./Laala-3.2-3B-quant-inst")
+model.save_pretrained("../Laala-3.2-3B-quant-inst-rl")
+tokenizer.save_pretrained("../Laala-3.2-3B-quant-inst-rl")

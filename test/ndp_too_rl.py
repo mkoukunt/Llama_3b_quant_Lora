@@ -3,11 +3,10 @@
 import torch
 from peft import PeftModel, PeftConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, GenerationConfig
-from flask import Flask, request, jsonify
 SYSTEM_PROMPT = """
 You are an helpful assistant understands the user question and provides the correct tool name to call along with  the arguments to pass to the tool.
 """
-app = Flask(__name__)
+
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -26,28 +25,20 @@ tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
 
 model = PeftModel.from_pretrained(model,peft_model_id)
 model.to("cuda")
+entry={
+        "question": "in  the  domain chris   run the validation test for  the domain  defaults for the model snom-m500 ",
+        "answer": "The capital of India is New Delhi."
+    }
+chat = [
+    {"role": "system", "content": SYSTEM_PROMPT},
+    {"role": "user", "content": entry["question"]},
+]
+chat = tokenizer.apply_chat_template(chat, tokenize=False)
+inputs = tokenizer(chat, return_tensors="pt", return_attention_mask=True)
+inputs.to("cuda")
 model.eval()
+config = GenerationConfig(do_sample=True, temperature=0.1)
+outputs = model.generate(**inputs, max_length=1000,pad_token_id=tokenizer.eos_token_id, generation_config=config )
 
-@app.route('/generate', methods=['POST'])
-def generate_text():
-    data = request.get_json()
-    print(data)
-    question = data.get('question')
-    chat = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": question},
-    ]
-    chat = tokenizer.apply_chat_template(chat, tokenize=False)
-    inputs = tokenizer(chat, return_tensors="pt", return_attention_mask=True)
-    inputs.to("cuda")
-    config = GenerationConfig(do_sample=True, temperature=0.1)
-    outputs = model.generate(**inputs, max_length=1000, pad_token_id=tokenizer.eos_token_id, generation_config=config)
-    text = tokenizer.batch_decode(outputs)[0]
-    print(text)
-    startIdx = text.index("<|start_header_id|>assistant<|end_header_id|>") + len(
-        "<|start_header_id|>assistant<|end_header_id|>") + 1
-    text = text[startIdx:].replace("<|eot_id|>", "")
-    print(text)
-    return text
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+text = tokenizer.batch_decode(outputs)[0]
+print(text)

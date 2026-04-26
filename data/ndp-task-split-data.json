@@ -1,0 +1,167 @@
+[
+
+  {
+        "question": "validate the brand defaults for the polycom brand  in the domain mgoud",
+        "answer": "[\"In domain mgoud validate the brand defaults for the brand polycom \"]"
+    },
+    {
+        "question": "validate the brand defaults for the grandstream brand  in the domain jackson",
+        "answer": "[\"In domain jackson validate the brand defaults for the brand grandstream \"]"
+    },
+
+  {
+        "question": "In the domain chris validate the brand defaults for the brand polycom",
+        "answer": "[\"In domain chris validate the brand defaults for the brand polycom \"]"
+    },
+
+    {
+        "question": "In the domain nchuda validate the brand defaults for the brand polycom",
+        "answer": "[\"In domain nchuda validate the brand defaults for the brand polycom \"]"
+    },
+    {
+        "question": "validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain bparikh validate the brand defaults for the brand polycom \"]"
+    },
+ {
+        "question": "validate the domain defaults for the brand polycom  in  the domain  mgoud and validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain mgoud validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+ },
+   {
+        "question": "validate the domain defaults for the brand polycom  in  the domain  damien and validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain damien validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+ },
+
+  {
+        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud",
+        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \"]"
+ },
+
+    {
+        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud then email the report to mgoud@crex.com",
+        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \",\"send an email to mgoud@crex.com\"]"
+ },
+   {
+        "question": "run validation test for the domain defaults for the brand yealink for the domain  damien",
+        "answer": "[\" In domain damien validate the domain defaults for the dbrand yealink\"]"
+ },
+
+    {
+        "question": "verify the snom-m500 model defaults for the domain  josh",
+        "answer": "[\"In domain josh validate the  model defaults for the model snom-m500\"]"
+ },
+    {
+        "question": "validate the domain defaults for the brand Snom for the domain  mgoud and verify the snom-m500 model defaults for the domain  damien",
+        "answer": "[\"In domain mgoud validate the domain defaults for the brand  Snom \", \", in domain damien validate model defaults for the model the snom-m500 \"] "
+ },
+
+
+
+
+   {
+        "question": "validate the brand defaults for the polycom brand  in the domain mgoud",
+        "answer": "[\"In domain mgoud validate the brand defaults for the brand polycom \"]"
+    },
+    {
+        "question": "validate the brand defaults for the grandstream brand  in the domain jackson",
+        "answer": "[\"In domain jackson validate the brand defaults for the brand grandstream \"]"
+    },
+
+  {
+        "question": "In the domain chris validate the brand defaults for the brand polycom",
+        "answer": "[\"In domain chris validate the brand defaults for the brand polycom \"]"
+    },
+
+    {
+        "question": "In the domain nchuda validate the brand defaults for the brand polycom",
+        "answer": "[\"In domain nchuda validate the brand defaults for the brand polycom \"]"
+    },
+    {
+        "question": "validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain bparikh validate the brand defaults for the brand polycom \"]"
+    },
+ {
+        "question": "validate the domain defaults for the brand polycom  in  the domain  mgoud and validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain mgoud validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+ },
+   {
+        "question": "validate the domain defaults for the brand polycom  in  the domain  damien and validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain damien validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+ },
+
+  {
+        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud",
+        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \"]"
+ },
+
+    {
+        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud then email the report to mgoud@crex.com",
+        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \",\"send an email to mgoud@crex.com\"]"
+ },
+   {
+        "question": "run validation test for the domain defaults for the brand yealink for the domain  damien",
+        "answer": "[\" In domain damien validate the domain defaults for the dbrand yealink\"]"
+ },
+
+    {
+        "question": "verify the snom-m500 model defaults for the domain  josh",
+        "answer": "[\"In domain josh validate the  model defaults for the model snom-m500\"]"
+ },
+    {
+        "question": "validate the domain defaults for the brand Snom for the domain  mgoud and verify the snom-m500 model defaults for the domain  damien",
+        "answer": "[\"In domain mgoud validate the domain defaults for the brand  Snom \", \", in domain damien validate model defaults for the model the snom-m500 \"] "
+ },
+   {
+        "question": "validate the brand defaults for the polycom brand  in the domain mgoud",
+        "answer": "[\"In domain mgoud validate the brand defaults for the brand polycom \"]"
+    },
+    {
+        "question": "validate the brand defaults for the grandstream brand  in the domain jackson",
+        "answer": "[\"In domain jackson validate the brand defaults for the brand grandstream \"]"
+    },
+
+  {
+        "question": "In the domain chris validate the brand defaults for the brand polycom",
+        "answer": "[\"In domain chris validate the brand defaults for the brand polycom \"]"
+    },
+
+    {
+        "question": "In the domain nchuda validate the brand defaults for the brand polycom",
+        "answer": "[\"In domain nchuda validate the brand defaults for the brand polycom \"]"
+    },
+    {
+        "question": "validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain bparikh validate the brand defaults for the brand polycom \"]"
+    },
+ {
+        "question": "validate the domain defaults for the brand polycom  in  the domain  mgoud and validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain mgoud validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+ },
+   {
+        "question": "validate the domain defaults for the brand polycom  in  the domain  damien and validate the brand defaults for the brand polycom in the domain bparikh",
+        "answer": "[\"In domain damien validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+ },
+
+  {
+        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud",
+        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \"]"
+ },
+
+    {
+        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud then email the report to mgoud@crex.com",
+        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \",\"send an email to mgoud@crex.com\"]"
+ },
+   {
+        "question": "run validation test for the domain defaults for the brand yealink for the domain  damien",
+        "answer": "[\" In domain damien validate the domain defaults for the dbrand yealink\"]"
+ },
+
+    {
+        "question": "verify the snom-m500 model defaults for the domain  josh",
+        "answer": "[\"In domain josh validate the  model defaults for the model snom-m500\"]"
+ },
+    {
+        "question": "validate the domain defaults for the brand Snom for the domain  mgoud and verify the snom-m500 model defaults for the domain  damien",
+        "answer": "[\"In domain mgoud validate the domain defaults for the brand  Snom \", \", in domain damien validate model defaults for the model the snom-m500 \"] "
+ }
+
+]
