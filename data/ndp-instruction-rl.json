@@ -5,7 +5,7 @@
     },
 
    {
-        "question": "validate the brand defaults for the brand polycom in domain bparikh",
+        "question": "in domain bparikh validate the brand defaults for the brand polycom ",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"bparikh\",\"brand\": \"polycom\"}}"
     },
    {
@@ -17,16 +17,16 @@
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"jackson\",\"brand\": \"grandstream\"}}"
     },
    {
-        "question": "validate  the brand defaults for the brand grandstream in domain chris" ,
+        "question": "in domain chris validate  the brand defaults for the brand grandstream " ,
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"chris\",\"brand\": \"grandstream\"}}"
     },
   {
-      "question": "run test to validate the domain defaults for the domain  mgoud with brand yealink",
+      "question": " in  domain  mgoud run test to validate the domain defaults  for brand yealink",
       "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"mgoud\",\"brand\": \"yealink\"}}"
     },
 
    {
-      "question": "run the validation test to validate the domain defaults for the domain  damien for the brand flyingvoice",
+      "question": "In the  domain  damien validate the domain defaults for the brand flyingvoice",
       "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"damien\",\"brand\": \"flyingvoice\"}}"
     },
    {
@@ -34,7 +34,7 @@
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"model defaults\",\"domain\": \"waught\", \"model\": \"polycom-t46s\"}}"
     },
   {
-       "question": "runt the validation for  the model defaults for the model polycom-t46s in domain jackson" ,
+       "question": "in domain jackson validate  the model defaults for the model polycom-t46s " ,
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"model defaults\", \"domain\": \"jackson\" ,\"model\": \"polycom-t46s\"}"
     },
 
@@ -44,14 +44,17 @@
     },
 
    {
-        "question": "validate the domain  defaults for the model snom-m500 for the  domain jackson",
+        "question": "in the  domain jackson validate the domain  defaults for the model snom-m500",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"jackson\",\"model\": \"snom-m500\"}}"
     }, {
-        "question": "validate the domain  defaults for the model snom-m500 for the  domain jackson",
+        "question": "for the  domain jackson validate the domain  defaults for the model snom-m500 ",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"jackson\",\"model\": \"snom-m500\"}}"
     },
 
-
+{
+        "question": "In domain bparikh validate the brand defaults for the brand polycom ",
+        "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"bparikh\",\"model\": \"polycom\"}}"
+},
 
 
 
@@ -70,7 +73,7 @@
     },
 
    {
-        "question": "validate the brand defaults for the brand polycom in domain bparikh",
+        "question": "in domain bparikh validate the brand defaults for the brand polycom ",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"bparikh\",\"brand\": \"polycom\"}}"
     },
    {
@@ -82,16 +85,16 @@
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"jackson\",\"brand\": \"grandstream\"}}"
     },
    {
-        "question": "validate  the brand defaults for the brand grandstream in domain chris" ,
+        "question": "in domain chris validate  the brand defaults for the brand grandstream " ,
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"chris\",\"brand\": \"grandstream\"}}"
     },
   {
-      "question": "run test to validate the domain defaults for the domain  mgoud with brand yealink",
+      "question": " in  domain  mgoud run test to validate the domain defaults  for brand yealink",
       "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"mgoud\",\"brand\": \"yealink\"}}"
     },
 
    {
-      "question": "run the validation test to validate the domain defaults for the domain  damien for the brand flyingvoice",
+      "question": "In the  domain  damien validate the domain defaults for the brand flyingvoice",
       "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"damien\",\"brand\": \"flyingvoice\"}}"
     },
    {
@@ -99,18 +102,25 @@
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"model defaults\",\"domain\": \"waught\", \"model\": \"polycom-t46s\"}}"
     },
   {
-       "question": "runt the validation for  the model defaults for the model polycom-t46s in domain jackson" ,
-        "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"model defaults\", \"domain\": \"jackson\" ,\"model\": \"polycom-t46s\"}}"
+       "question": "in domain jackson validate  the model defaults for the model polycom-t46s " ,
+        "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"model defaults\", \"domain\": \"jackson\" ,\"model\": \"polycom-t46s\"}"
     },
 
   {
         "question": "In domain ketan validate  the model defaults for the model snom-m500",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"model defaults\", \"domain\": \"ketan\",\"model\": \"snom-m500\"}}"
-    },{
-        "question": "validate the domain  defaults for the model snom-m500 for the  domain jackson",
+    },
+
+   {
+        "question": "in the  domain jackson validate the domain  defaults for the model snom-m500",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"jackson\",\"model\": \"snom-m500\"}}"
-    },{
-        "question": "validate the domain  defaults for the model snom-m500 for the  domain jackson",
+    }, {
+        "question": "for the  domain jackson validate the domain  defaults for the model snom-m500 ",
         "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"domain defaults\", \"domain\": \"jackson\",\"model\": \"snom-m500\"}}"
-    }
+    },
+
+{
+        "question": "In domain bparikh validate the brand defaults for the brand polycom ",
+        "answer": "{\"name\": \"validate \", \"arguments\": {\"subtask\": \"brand defaults\", \"domain\": \"bparikh\",\"model\": \"polycom\"}}"
+}
 ]

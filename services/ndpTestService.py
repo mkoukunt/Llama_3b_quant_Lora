@@ -15,7 +15,7 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16, # Or torch.bfloat16
     bnb_4bit_use_double_quant=True
 )
-peft_model_id = "../Laala-3.2-3B-quant-inst-rl"
+peft_model_id = "../Laala-3.2-3B-ndp-inst-api"
 config = PeftConfig.from_pretrained(peft_model_id)
 print(config.base_model_name_or_path)
 model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path,

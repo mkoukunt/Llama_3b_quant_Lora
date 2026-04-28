@@ -36,9 +36,9 @@ tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
 
 lora_config = LoraConfig(
     task_type="CAUSAL_LM",#"SEQ_2_SEQ_LM",
-    r=24,#8,
+    r=16,#8,
     lora_alpha=32,
-    target_modules=["q_proj", "v_proj"],
+    target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj'],
     lora_dropout=0.01,
 )
 
@@ -98,7 +98,7 @@ class InstructionDataset(Dataset):
 
 
     def __getitem__(self, index):
-        print(self.encoded_texts[index])
+        #print(self.encoded_texts[index])
         return self.encoded_texts[index]
 
     def __len__(self):
@@ -179,7 +179,7 @@ start_time = time.time()
 torch.manual_seed(123)
 
 
-num_epochs = 2
+num_epochs = 10
 
 #dataset = load_dataset("./data/api-task-split-data.json", split="train")
 

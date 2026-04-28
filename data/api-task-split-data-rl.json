@@ -83,6 +83,17 @@
     },
 
 
+    {
+        "prompt": "delete  a device for a user in the domain mgoud then update a device for a user in the domain mgoud then please create a new  device for a user in the  domain mgoud? ",
+        "answer":  "1. delete  a device for a user in the domain <mgoud> 2. please update a device for a user in the domain <mgoud>  3. please create a new  device for a user in the  domain <mgoud>"
+    },
+
+
+
+
+
+
+
 
   {
         "prompt": "get  a specific device for a user in the domain mgoud? ",
