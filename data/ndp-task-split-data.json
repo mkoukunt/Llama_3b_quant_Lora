@@ -1,167 +1,126 @@
 [
+  {
+        "question": "validate the brand overrides for the mac 805ec0d87f99",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f99\"]"
+    },
+{
+        "question": "validate the brand overrides for the mac 805ec0d87f89",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f89\"]"
+    },
 
   {
-        "question": "validate the brand defaults for the polycom brand  in the domain mgoud",
-        "answer": "[\"In domain mgoud validate the brand defaults for the brand polycom \"]"
+        "question": "run the validation for the brand overrides for the mac 805ec0d87f89",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f89\"]"
     },
-    {
-        "question": "validate the brand defaults for the grandstream brand  in the domain jackson",
-        "answer": "[\"In domain jackson validate the brand defaults for the brand grandstream \"]"
-    },
+
+{
+        "question": "validate the domain defaults for the mac 805ec00daee9",
+        "answer": "[\"validate the domain overrides for the mac 805ec00daee9\"]"
+},
 
   {
-        "question": "In the domain chris validate the brand defaults for the brand polycom",
-        "answer": "[\"In domain chris validate the brand defaults for the brand polycom \"]"
+        "question": "run the validation for the brand defaults for the mac 805ec0d87f89",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f89\"]"
     },
 
     {
-        "question": "In the domain nchuda validate the brand defaults for the brand polycom",
-        "answer": "[\"In domain nchuda validate the brand defaults for the brand polycom \"]"
-    },
-    {
-        "question": "validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain bparikh validate the brand defaults for the brand polycom \"]"
+        "question": "validate the brand overrides for the mac 001565112255",
+        "answer": "[\"validate the brand overrides for the mac 001565112255\"]"
     },
  {
-        "question": "validate the domain defaults for the brand polycom  in  the domain  mgoud and validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain mgoud validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+        "question": "validate the domain overrides for the mac  c074ad8e8a00 and validate the brand defaults for the mac 991565123456",
+        "answer": "[\"validate the brand overrides for the mac c074ad8e8a00\", \"validate the brand overrides for the mac 991565123456\"]"
  },
    {
-        "question": "validate the domain defaults for the brand polycom  in  the domain  damien and validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain damien validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+        "question": "validate the model overrides for the brand mac acd18000875e and validate the brand defaults for the mac 001565112244",
+        "answer": "[\"validate the model overrides for the brand mac acd18000875e\", \"validate the brand overrides for the mac 001565112244\"]"
  },
 
   {
-        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud",
-        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \"]"
+        "question": "validate the model defaults for the mac 4825678608b8",
+        "answer": "[\"validate the model overrides for the mac 4825678608b8\"]"
  },
 
     {
-        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud then email the report to mgoud@crex.com",
-        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \",\"send an email to mgoud@crex.com\"]"
+        "question": "validate the device overrides for the mac 08000fdf4595 then validate the brand defaults for the mac 001565112244",
+        "answer": "[\"validate the device overrides for the mac 08000fdf4595 \",\"validate the brand overrides for the mac 001565112244\"]"
  },
    {
-        "question": "run validation test for the domain defaults for the brand yealink for the domain  damien",
-        "answer": "[\" In domain damien validate the domain defaults for the dbrand yealink\"]"
+        "question": "run validation test for the device defaults for the mac 001fc11cd11c",
+        "answer": "[\"validate the device overrides for the mac 001fc11cd11c\"]"
  },
 
     {
-        "question": "verify the snom-m500 model defaults for the domain  josh",
-        "answer": "[\"In domain josh validate the  model defaults for the model snom-m500\"]"
+        "question": "validate the device overrides for the mac c074ad7cfe54",
+        "answer": "[\"validate the device overrides for the mac c074ad7cfe54\"]"
  },
     {
-        "question": "validate the domain defaults for the brand Snom for the domain  mgoud and verify the snom-m500 model defaults for the domain  damien",
-        "answer": "[\"In domain mgoud validate the domain defaults for the brand  Snom \", \", in domain damien validate model defaults for the model the snom-m500 \"] "
+        "question": "validate the domain overrides for the mac 001fc11b2ada and validate the model defaults for the mac c074ad7cfe54",
+        "answer": "[\"validate the domain overrides for the mac 001fc11b2ada\", \"validate the model overrides for the mac c074ad7cfe54\"] "
  },
 
 
 
 
-   {
-        "question": "validate the brand defaults for the polycom brand  in the domain mgoud",
-        "answer": "[\"In domain mgoud validate the brand defaults for the brand polycom \"]"
+
+
+     {
+        "question": "validate the brand overrides for the mac 805ec0d87f99",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f99\"]"
     },
-    {
-        "question": "validate the brand defaults for the grandstream brand  in the domain jackson",
-        "answer": "[\"In domain jackson validate the brand defaults for the brand grandstream \"]"
+{
+        "question": "validate the brand overrides for the mac 805ec0d87f89",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f89\"]"
     },
 
   {
-        "question": "In the domain chris validate the brand defaults for the brand polycom",
-        "answer": "[\"In domain chris validate the brand defaults for the brand polycom \"]"
+        "question": "run the validation for the brand overrides for the mac 805ec0d87f89",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f89\"]"
+    },
+
+{
+        "question": "validate the domain defaults for the mac 805ec00daee9",
+        "answer": "[\"validate the domain overrides for the mac 805ec00daee9\"]"
+},
+
+  {
+        "question": "run the validation for the brand defaults for the mac 805ec0d87f89",
+        "answer": "[\"validate the brand overrides for the mac 805ec0d87f89\"]"
     },
 
     {
-        "question": "In the domain nchuda validate the brand defaults for the brand polycom",
-        "answer": "[\"In domain nchuda validate the brand defaults for the brand polycom \"]"
-    },
-    {
-        "question": "validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain bparikh validate the brand defaults for the brand polycom \"]"
+        "question": "validate the brand overrides for the mac 001565112255",
+        "answer": "[\"validate the brand overrides for the mac 001565112255\"]"
     },
  {
-        "question": "validate the domain defaults for the brand polycom  in  the domain  mgoud and validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain mgoud validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+        "question": "validate the domain overrides for the mac  c074ad8e8a00 and validate the brand defaults for the mac 991565123456",
+        "answer": "[\"validate the brand overrides for the mac c074ad8e8a00\", \"validate the brand overrides for the mac 991565123456\"]"
  },
    {
-        "question": "validate the domain defaults for the brand polycom  in  the domain  damien and validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain damien validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
+        "question": "validate the model overrides for the brand mac acd18000875e and validate the brand defaults for the mac 001565112244",
+        "answer": "[\"validate the model overrides for the brand mac acd18000875e\", \"validate the brand overrides for the mac 001565112244\"]"
  },
 
   {
-        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud",
-        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \"]"
+        "question": "validate the model defaults for the mac 4825678608b8",
+        "answer": "[\"validate the model overrides for the mac 4825678608b8\"]"
  },
 
     {
-        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud then email the report to mgoud@crex.com",
-        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \",\"send an email to mgoud@crex.com\"]"
+        "question": "validate the device overrides for the mac 08000fdf4595 then validate the brand defaults for the mac 001565112244",
+        "answer": "[\"validate the device overrides for the mac 08000fdf4595 \",\"validate the brand overrides for the mac 001565112244\"]"
  },
    {
-        "question": "run validation test for the domain defaults for the brand yealink for the domain  damien",
-        "answer": "[\" In domain damien validate the domain defaults for the dbrand yealink\"]"
+        "question": "run validation test for the device defaults for the mac 001fc11cd11c",
+        "answer": "[\"validate the device overrides for the mac 001fc11cd11c\"]"
  },
 
     {
-        "question": "verify the snom-m500 model defaults for the domain  josh",
-        "answer": "[\"In domain josh validate the  model defaults for the model snom-m500\"]"
+        "question": "validate the device overrides for the mac c074ad7cfe54",
+        "answer": "[\"validate the device overrides for the mac c074ad7cfe54\"]"
  },
     {
-        "question": "validate the domain defaults for the brand Snom for the domain  mgoud and verify the snom-m500 model defaults for the domain  damien",
-        "answer": "[\"In domain mgoud validate the domain defaults for the brand  Snom \", \", in domain damien validate model defaults for the model the snom-m500 \"] "
- },
-   {
-        "question": "validate the brand defaults for the polycom brand  in the domain mgoud",
-        "answer": "[\"In domain mgoud validate the brand defaults for the brand polycom \"]"
-    },
-    {
-        "question": "validate the brand defaults for the grandstream brand  in the domain jackson",
-        "answer": "[\"In domain jackson validate the brand defaults for the brand grandstream \"]"
-    },
-
-  {
-        "question": "In the domain chris validate the brand defaults for the brand polycom",
-        "answer": "[\"In domain chris validate the brand defaults for the brand polycom \"]"
-    },
-
-    {
-        "question": "In the domain nchuda validate the brand defaults for the brand polycom",
-        "answer": "[\"In domain nchuda validate the brand defaults for the brand polycom \"]"
-    },
-    {
-        "question": "validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain bparikh validate the brand defaults for the brand polycom \"]"
-    },
- {
-        "question": "validate the domain defaults for the brand polycom  in  the domain  mgoud and validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain mgoud validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
- },
-   {
-        "question": "validate the domain defaults for the brand polycom  in  the domain  damien and validate the brand defaults for the brand polycom in the domain bparikh",
-        "answer": "[\"In domain damien validate the domain defaults for the brand polycom\", \" In domain bparikh  validate the brand defaults for the brand polycom\"]"
- },
-
-  {
-        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud",
-        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \"]"
- },
-
-    {
-        "question": "validate the model defaults for the model polycom-t46s for the domain  mgoud then email the report to mgoud@crex.com",
-        "answer": "[\"In domain mgoud validate the model defaults for the model polycom-t46s \",\"send an email to mgoud@crex.com\"]"
- },
-   {
-        "question": "run validation test for the domain defaults for the brand yealink for the domain  damien",
-        "answer": "[\" In domain damien validate the domain defaults for the dbrand yealink\"]"
- },
-
-    {
-        "question": "verify the snom-m500 model defaults for the domain  josh",
-        "answer": "[\"In domain josh validate the  model defaults for the model snom-m500\"]"
- },
-    {
-        "question": "validate the domain defaults for the brand Snom for the domain  mgoud and verify the snom-m500 model defaults for the domain  damien",
-        "answer": "[\"In domain mgoud validate the domain defaults for the brand  Snom \", \", in domain damien validate model defaults for the model the snom-m500 \"] "
+        "question": "validate the domain overrides for the mac 001fc11b2ada and validate the model defaults for the mac c074ad7cfe54",
+        "answer": "[\"validate the domain overrides for the mac 001fc11b2ada\", \"validate the model overrides for the mac c074ad7cfe54\"] "
  }
-
 ]

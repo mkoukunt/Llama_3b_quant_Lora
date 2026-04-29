@@ -41,7 +41,7 @@ tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
 model = PeftModel.from_pretrained(model,peft_model_id)
 model.to("cuda")
 entry={
-        "question": "verify the snom-m500 model defaults in  the domain  josh and validate the model defaults for the model polycom-t46s for the domain  mgoud",
+        "question": "validate the domain overrides for the mac 001fc11b2ada and validate the model defaults for the mac c074ad7cfe90",
         "answer": "The capital of India is New Delhi."
     }
 chat = [

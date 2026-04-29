@@ -50,4 +50,4 @@ def generate_text():
     print(text)
     return text
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run(ssl_context=('/home/linux/projects/certs/cert.pem', '/home/linux/projects/certs/key.pem'),host='0.0.0.0', port=5001)
